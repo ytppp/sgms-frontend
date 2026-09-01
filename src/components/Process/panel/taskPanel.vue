@@ -20,11 +20,11 @@
         <el-button-group class="ml-4" style="margin-top: 4px">
           <!--指定人员-->
           <el-tooltip class="box-item" effect="dark" content="指定人员" placement="bottom">
-            <el-button type="primary" icon="el-icon-user" @click="singleUserCheck"/>
+            <el-button type="primary" icon="User" @click="singleUserCheck"/>
           </el-tooltip>
           <!--选择表达式-->
           <el-tooltip class="box-item" effect="dark" content="选择表达式" placement="bottom">
-            <el-button type="warning" icon="el-icon-postcard" @click="singleExpCheck"/>
+            <el-button type="warning" icon="Postcard" @click="singleExpCheck"/>
           </el-tooltip>
         </el-button-group>
       </el-form-item>
@@ -34,11 +34,11 @@
         <el-button-group class="ml-4" style="margin-top: 4px">
           <!--候选人员-->
           <el-tooltip class="box-item" effect="dark" content="候选人员" placement="bottom">
-            <el-button type="primary" icon="el-icon-user" @click="multipleUserCheck"/>
+            <el-button type="primary" icon="User" @click="multipleUserCheck"/>
           </el-tooltip>
           <!--选择表达式-->
           <el-tooltip class="box-item" effect="dark" content="选择表达式" placement="bottom">
-            <el-button type="warning" icon="el-icon-postcard" @click="singleExpCheck"/>
+            <el-button type="warning" icon="Postcard" @click="singleExpCheck"/>
           </el-tooltip>
         </el-button-group>
       </el-form-item>
@@ -48,11 +48,11 @@
         <el-button-group class="ml-4" style="margin-top: 4px">
           <!--候选角色-->
           <el-tooltip class="box-item" effect="dark" content="候选角色" placement="bottom">
-            <el-button type="primary" icon="el-icon-user"  @click="multipleRoleCheck"/>
+            <el-button type="primary" icon="User"  @click="multipleRoleCheck"/>
           </el-tooltip>
           <!--选择表达式-->
           <el-tooltip class="box-item" effect="dark" content="选择表达式" placement="bottom">
-            <el-button type="warning" icon="el-icon-postcard" @click="singleExpCheck"/>
+            <el-button type="warning" icon="Postcard" @click="singleExpCheck"/>
           </el-tooltip>
         </el-button-group>
       </el-form-item>
@@ -68,46 +68,52 @@
     <!--选择人员-->
     <el-dialog
       title="选择人员"
-      :visible.sync="userVisible"
+      v-model="userVisible"
       width="60%"
       :close-on-press-escape="false"
       :show-close="false"
     >
       <flow-user v-if="userVisible" :checkType="checkType" :selectValues="selectData.assignee || selectData.candidateUsers" @handleUserSelect="userSelect"></flow-user>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="userVisible = false">取 消</el-button>
-        <el-button type="primary" @click="checkUserComplete">确 定</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="userVisible = false">取 消</el-button>
+          <el-button type="primary" @click="checkUserComplete">确 定</el-button>
+        </div>
+      </template>
     </el-dialog>
 
     <!--选择角色-->
     <el-dialog
       title="选择候选角色"
-      :visible.sync="roleVisible"
+      v-model="roleVisible"
       width="60%"
       :close-on-press-escape="false"
       :show-close="false"
     >
       <flow-role v-if="roleVisible" :selectValues="selectData.candidateGroups" @handleRoleSelect="roleSelect"></flow-role>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="roleVisible = false">取 消</el-button>
-        <el-button type="primary" @click="checkRoleComplete">确 定</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="roleVisible = false">取 消</el-button>
+          <el-button type="primary" @click="checkRoleComplete">确 定</el-button>
+        </div>
+      </template>
     </el-dialog>
 
     <!--选择表达式-->
     <el-dialog
       title="选择表达式"
-      :visible.sync="expVisible"
+      v-model="expVisible"
       width="60%"
       :close-on-press-escape="false"
       :show-close="false"
     >
       <flow-exp v-if="expVisible" :selectValues="selectData.exp" @handleSingleExpSelect="expSelect"></flow-exp>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="expVisible = false">取 消</el-button>
-        <el-button type="primary" @click="checkExpComplete">确 定</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="expVisible = false">取 消</el-button>
+          <el-button type="primary" @click="checkExpComplete">确 定</el-button>
+        </div>
+      </template>
     </el-dialog>
 
 
@@ -285,7 +291,7 @@ export default {
         const newArr = this.modelerStore.roleList?.filter(i => val.split(',').includes(i.roleId.toString()))
         this.bpmnFormData[key] = newArr.map(item => item.roleName).join(',');
         if ('assignee' === key) {
-          this.selectData[key] = newArr.find(item => item.roleId.toString() === val).roleId;
+          this.selectData[key] = newArr.find(item => item.roleId.toString() === val.toString()).roleId;
         } else {
           this.selectData[key] = newArr.map(item => item.roleId);
         }

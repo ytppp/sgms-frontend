@@ -16,7 +16,7 @@
         :formatter="(row) => listenerTypeObject[row.listenerType]"
       />
       <el-table-column label="操作">
-        <template slot-scope="scope">
+        <template #default="scope">
           <el-button type="primary" @click="openListenerForm(scope.row, scope.$index)"
             >编辑</el-button
           >
@@ -30,19 +30,19 @@
     <div class="element-drawer__button_save">
       <el-button
         type="primary"
-        icon="el-icon-plus"
+        icon="Plus"
 
         @click="listenerSystemVisible = true"
         >内置监听器</el-button
       >
-      <el-button type="primary" icon="el-icon-plus" @click="openListenerForm(null)"
+      <el-button type="primary" icon="Plus" @click="openListenerForm(null)"
         >自定义监听器</el-button
       >
     </div>
 
     <!-- 监听器 编辑/创建 部分 -->
     <el-drawer
-      :visible.sync="listenerFormModelVisible"
+      v-model="listenerFormModelVisible"
       title="任务监听器"
       size="480px"
       append-to-body
@@ -52,14 +52,14 @@
         :model="listenerForm"
         label-width="110px"
         ref="listenerFormRef"
-        @submit.native.prevent
+        @submit.prevent
       >
         <el-form-item prop="event" :rules="{ required: true, trigger: ['blur', 'change'] }">
-          <template slot="label">
+          <template #label>
             <span>
               事件类型
               <el-tooltip placement="top">
-                <template slot="content">
+                <template #content>
                   <div>
                     create（创建）：当任务已经创建，并且所有任务参数都已经设置时触发。
                     <br />assignment（指派）：当任务已经指派给某人时触发。请注意：当流程执行到达用户任务时，
@@ -69,7 +69,7 @@
                     <br />delete（删除）：在任务即将被删除前触发。请注意任务由completeTask正常完成时也会触发。
                   </div>
                 </template>
-                <i class="el-icon-question" />
+                <el-icon><QuestionFilled /></el-icon>
               </el-tooltip>
             </span>
           </template>
@@ -90,11 +90,11 @@
           prop="listenerType"
           :rules="{ required: true, trigger: ['blur', 'change'] }"
         >
-          <template slot="label">
+          <template #label>
             <span>
               监听类型
               <el-tooltip placement="top">
-                <template slot="content">
+                <template #content>
                   <div>
                     class：需要调用的委托类。这个类必须实现org.flowable.engine.delegate.TaskListener接口。
                     <br />assignment（指派）：当任务已经指派给某人时触发。请注意：当流程执行到达用户任务时，
@@ -105,7 +105,7 @@
                     <br />delete（删除）：在任务即将被删除前触发。请注意任务由completeTask正常完成时也会触发。
                   </div>
                 </template>
-                <i class="el-icon-question" />
+                <el-icon><QuestionFilled /></el-icon>
               </el-tooltip>
             </span>
           </template>
@@ -208,7 +208,7 @@
 
       <el-divider />
       <p class="listener-filed__title">
-        <span><i class="el-icon-menu"></i>注入字段：</span>
+        <span><el-icon><Menu /></el-icon>注入字段：</span>
         <el-button type="primary" @click="openListenerFieldForm(null)"
           >添加字段</el-button
         >
@@ -229,7 +229,7 @@
           :formatter="(row) => row.string || row.expression"
         />
         <el-table-column label="操作">
-          <template slot-scope="scope">
+          <template #default="scope">
             <el-button
               type="primary"
               @click="openListenerFieldForm(scope.row, scope.$index)"
@@ -254,7 +254,7 @@
     <!-- 注入西段 编辑/创建 部分 -->
     <el-dialog
       title="字段配置"
-      :visible.sync="listenerFieldFormModelVisible"
+      v-model="listenerFieldFormModelVisible"
       width="600px"
       append-to-body
       destroy-on-close
@@ -264,7 +264,7 @@
         label-width="96px"
         ref="listenerFieldFormRef"
         style="height: 136px"
-        @submit.native.prevent
+        @submit.prevent
       >
         <el-form-item
           label="字段名称："
@@ -306,15 +306,17 @@
           <el-input v-model="listenerFieldForm.expression" clearable />
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="listenerFieldFormModelVisible = false">取 消</el-button>
-        <el-button type="primary" @click="saveListenerFiled">确 定</el-button>
-      </div>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="listenerFieldFormModelVisible = false">取 消</el-button>
+          <el-button type="primary" @click="saveListenerFiled">确 定</el-button>
+        </div>
+      </template>
     </el-dialog>
 
     <!-- 内置监听器 -->
     <el-drawer
-      :visible.sync="listenerSystemVisible"
+      v-model="listenerSystemVisible"
       title="任务监听器"
       size="580px"
       append-to-body
@@ -325,7 +327,7 @@
         <el-table-column label="名称" align="center" prop="name" />
         <el-table-column label="类型" align="center" prop="eventType" />
         <el-table-column label="监听类型" align="center" prop="valueType">
-          <template slot-scope="scope">
+          <template #default="scope">
             <dict-tag :options="dict.type.sys_listener_value_type" :value="scope.row.valueType" />
           </template>
         </el-table-column>
@@ -341,8 +343,8 @@
         v-show="total > 0"
         :total="total"
         layout="prev, pager, next"
-        :page.sync="queryParams.pageNum"
-        :limit.sync="queryParams.pageSize"
+        v-model:page="queryParams.pageNum"
+        v-model:limit="queryParams.pageSize"
         @pagination="getList"
       />
 

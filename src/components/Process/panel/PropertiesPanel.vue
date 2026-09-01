@@ -5,13 +5,14 @@
       <el-table-column label="属性名" prop="name" min-width="100px" show-overflow-tooltip />
       <el-table-column label="属性值" prop="value" min-width="100px" show-overflow-tooltip />
       <el-table-column label="操作" width="90px">
-        <template slot-scope="{ row, $index }">
-          <el-button type="text" @click="openAttributesForm(row, $index)"
+        <template #default="{ row, $index }">
+          <el-button link type="primary" @click="openAttributesForm(row, $index)"
             >编辑</el-button
           >
           <el-divider direction="vertical" />
           <el-button
-            type="text"
+            link
+            type="primary"
             style="color: #ff4d4f"
             @click="removeAttributes(row, $index)"
             >移除</el-button
@@ -22,14 +23,14 @@
     <div class="element-drawer__button">
       <el-button
         type="primary"
-        icon="el-icon-plus"
+        icon="Plus"
         @click="openAttributesForm(null, -1)"
         >添加属性</el-button
       >
     </div>
 
     <el-dialog
-      :visible.sync="propertyFormModelVisible"
+      v-model="propertyFormModelVisible"
       title="属性配置"
       width="600px"
       append-to-body
@@ -39,7 +40,7 @@
         :model="propertyForm"
         label-width="80px"
         ref="attributeFormRef"
-        @submit.native.prevent
+        @submit.prevent
       >
         <el-form-item label="属性名：" prop="name">
           <el-input v-model="propertyForm.name" clearable />
@@ -48,7 +49,7 @@
           <el-input v-model="propertyForm.value" clearable />
         </el-form-item>
       </el-form>
-      <template slot="footer">
+      <template #footer>
         <el-button @click="propertyFormModelVisible = false">取 消</el-button>
         <el-button type="primary" @click="saveAttribute">确 定</el-button>
       </template>

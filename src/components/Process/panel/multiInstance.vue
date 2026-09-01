@@ -1,6 +1,6 @@
 <template>
   <div class="panel-tab__content">
-    <el-form label-width="70px" @submit.native.prevent>
+    <el-form label-width="70px" @submit.prevent>
       <el-form-item label="参数说明">
         <el-button type="primary" @click="dialogVisible = true">查看</el-button>
       </el-form-item>
@@ -44,7 +44,7 @@
     </el-form>
 
   <!-- 参数说明 -->
-  <el-dialog title="多实例参数" :visible.sync="dialogVisible" width="680px" @closed="$emit('close')">
+  <el-dialog title="多实例参数" v-model="dialogVisible" width="680px" @closed="$emit('close')">
     <el-descriptions :column="1" border>
       <el-descriptions-item label="使用说明">按照BPMN2.0规范的要求，用于为每个实例创建执行的父执行，会提供下列变量:</el-descriptions-item>
       <el-descriptions-item label="collection(集合变量)">传入List参数, 一般为用户ID集合</el-descriptions-item>

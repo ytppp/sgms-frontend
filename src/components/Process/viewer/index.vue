@@ -13,13 +13,13 @@
         <!--  按钮区域  -->
         <el-button-group class="button-group">
           <el-tooltip effect="dark" content="适中" placement="bottom">
-            <el-button icon="el-icon-rank" @click="fitViewport" />
+            <el-button icon="Rank" @click="fitViewport" />
           </el-tooltip>
           <el-tooltip effect="dark" content="放大" placement="bottom">
-            <el-button icon="el-icon-zoom-in" @click="zoomViewport(true)" />
+            <el-button icon="ZoomIn" @click="zoomViewport(true)" />
           </el-tooltip>
           <el-tooltip effect="dark" content="缩小" placement="bottom">
-            <el-button icon="el-icon-zoom-out" @click="zoomViewport(false)" />
+            <el-button icon="ZoomOut" @click="zoomViewport(false)" />
           </el-tooltip>
         </el-button-group>
       </el-main>

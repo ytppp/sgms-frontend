@@ -1,6 +1,6 @@
 <template>
   <div>
-  <el-form label-width="80px" @submit.native.prevent>
+  <el-form label-width="80px" @submit.prevent>
     <el-form-item label="跳过表达式">
       <el-input v-model="bpmnFormData.skipExpression" @change="updateElementTask('skipExpression')"/>
     </el-form-item>
