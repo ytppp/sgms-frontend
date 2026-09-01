@@ -1,10 +1,8 @@
 <template>
   <div>
-    <template #header>
-      <div class="card-header">
-        <span>{{ translateNodeName(elementType) }}</span>
-      </div>
-    </template>
+    <div class="card-header">
+      <span>{{ translateNodeName(elementType) }}</span>
+    </div>
     <el-collapse v-model="activeName" >
         <!--   常规信息     -->
         <el-collapse-item name="common">
