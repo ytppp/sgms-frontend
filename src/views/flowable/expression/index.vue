@@ -18,7 +18,7 @@
       <el-form-item label="状态" prop="status">
         <el-select v-model="queryParams.status" placeholder="请选择状态" clearable>
           <el-option
-            v-for="dict in dict.type.sys_common_status"
+            v-for="dict in sys_common_status"
             :key="dict.value"
             :label="dict.label"
             :value="dict.value"
@@ -87,7 +87,7 @@
       <el-table-column label="表达式内容" align="center" prop="expression" />
       <el-table-column label="指定类型" align="center" prop="dataType">
         <template #default="scope">
-          <dict-tag :options="dict.type.exp_data_type" :value="scope.row.dataType" />
+          <dict-tag :options="exp_data_type" :value="scope.row.dataType" />
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
@@ -132,7 +132,7 @@
         <el-form-item label="指定类型" prop="dataType">
           <el-radio-group v-model="form.dataType">
             <el-radio
-              v-for="dict in dict.type.exp_data_type"
+              v-for="dict in exp_data_type"
               :key="dict.value"
               :label="dict.value"
               >{{ dict.label }}</el-radio
@@ -142,7 +142,7 @@
         <el-form-item label="状态" prop="status">
           <el-radio-group v-model="form.status">
             <el-radio
-              v-for="dict in dict.type.sys_common_status"
+              v-for="dict in sys_common_status"
               :key="dict.value"
               :label="parseInt(dict.value)"
               >{{ dict.label }}</el-radio
@@ -171,10 +171,14 @@ import {
   addExpression,
   updateExpression,
 } from '@/api/flowable/expression'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: 'FlowExp',
-  dicts: ['sys_common_status', 'exp_data_type'],
+  setup() {
+    const { sys_common_status, exp_data_type } = useDict('sys_common_status', 'exp_data_type')
+    return { sys_common_status, exp_data_type }
+  },
   data() {
     return {
       // 遮罩层

@@ -199,7 +199,6 @@
 <script>
   import VFormRender from '@vForm/form-render/index'
   import CodeEditor from '@vForm/code-editor/index'
-  import SvgIcon from '@/components/SvgIcon'
   import Clipboard from 'clipboard'
   import {
     deepClone,
@@ -221,7 +220,6 @@
     components: {
       VFormRender,
       CodeEditor,
-      SvgIcon,
       Clipboard,
     },
     props: {

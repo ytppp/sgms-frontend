@@ -74,10 +74,14 @@
 <script>
 import { listRole } from '@/api/system/role'
 import { StrUtil } from '@/utils/StrUtil'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: 'FlowRole',
-  dicts: ['sys_normal_disable'],
+  setup() {
+    const { sys_normal_disable } = useDict('sys_normal_disable')
+    return { sys_normal_disable }
+  },
   // 接受父组件的值
   props: {
     // 回显数据传值

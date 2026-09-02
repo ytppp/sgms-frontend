@@ -38,7 +38,7 @@
       <!--        <el-button-->
       <!--          type="primary"-->
       <!--          plain-->
-      <!--          icon="el-icon-upload"-->
+      <!--          icon="Upload"-->
       <!--          @click="handleImport"-->
       <!--        >导入</el-button>-->
       <!--      </el-col>-->
@@ -208,7 +208,7 @@
               <!--          <el-input v-model="upload.category"/>-->
               <el-select v-model="upload.category" placeholder="请选择流程分类">
                 <el-option
-                  v-for="dict in dict.type.sys_process_category"
+                  v-for="dict in sys_process_category"
                   :key="dict.value"
                   :label="dict.label"
                   :value="dict.value"
@@ -310,10 +310,14 @@ import { getToken } from '@/utils/auth'
 import { getForm, addDeployForm, listForm } from '@/api/flowable/form'
 import BpmnViewer from '@/components/Process/viewer'
 import Model from './model'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: 'Definition',
-  dicts: ['sys_process_category'],
+  setup() {
+    const { sys_process_category } = useDict('sys_process_category')
+    return { sys_process_category }
+  },
   components: {
     BpmnViewer,
     Model,

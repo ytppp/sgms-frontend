@@ -17,15 +17,11 @@
 </template>
 
 <script>
-  import SvgIcon from '@/components/SvgIcon'
   import i18n from '@vForm/utils/i18n'
 
   export default {
     name: "validation-editor",
     mixins: [i18n],
-    components: {
-      SvgIcon
-    },
     props: {
       designer: Object,
       selectedWidget: Object,

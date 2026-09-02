@@ -32,7 +32,6 @@
 
 <script>
   import FormItemWrapper from './form-item-wrapper'
-  import SvgIcon from '@/components/SvgIcon'
   import emitter from '@vForm/utils/emitter'
   import i18n, {translate} from '@vForm/utils/i18n'
   import {deepClone} from '@vForm/utils/util'
@@ -70,7 +69,6 @@
     },
     components: {
       FormItemWrapper,
-      SvgIcon,
     },
     data() {
       return {
@@ -269,8 +267,6 @@
 </script>
 
 <style lang="scss" scoped>
-  @use '@/assets/styles/variables.module.scss' as *;
-
   .full-width-input {
     width: 100% !important;
   }

@@ -44,7 +44,6 @@
   import ContainerWrapper from "@vForm/form-designer/form-widget/container-widget/container-wrapper"
   import FieldComponents from "@vForm/form-designer/form-widget/field-widget/index"
   import refMixinDesign from "@vForm/form-designer/refMixinDesign"
-  import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
 
   export default {
     name: "card-widget",
@@ -54,8 +53,6 @@
     components: {
       ContainerWrapper,
       ...FieldComponents,
-      ArrowDown,
-      ArrowUp
     },
     props: {
       widget: Object,

@@ -96,7 +96,6 @@
 </template>
 
 <script setup>
-import draggable from "vuedraggable/dist/vuedraggable.common"
 import ClipboardJS from 'clipboard'
 import beautifier from 'js-beautify'
 import logo from '@/assets/logo/logo.png'

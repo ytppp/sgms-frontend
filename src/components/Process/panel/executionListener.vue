@@ -262,7 +262,7 @@
         <el-table-column label="类型" align="center" prop="eventType" />
         <el-table-column label="监听类型" align="center" prop="valueType">
           <template #default="scope">
-            <dict-tag :options="dict.type.sys_listener_value_type" :value="scope.row.valueType" />
+            <dict-tag :options="sys_listener_value_type" :value="scope.row.valueType" />
           </template>
         </el-table-column>
         <el-table-column
@@ -305,11 +305,15 @@ import {
 } from '../common/bpmnUtils'
 
 import { StrUtil } from '@/utils/StrUtil'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: 'ExecutionListener',
   // 内置监听器相关信息
-  dicts: ['sys_listener_value_type', 'sys_listener_event_type'],
+  setup() {
+    const { sys_listener_value_type, sys_listener_event_type } = useDict('sys_listener_value_type', 'sys_listener_event_type')
+    return { sys_listener_value_type, sys_listener_event_type }
+  },
   /** 组件传值  */
   props: {
     id: {

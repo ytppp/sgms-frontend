@@ -28,7 +28,7 @@ import './permission' // permission control
 import { useDict } from '@/utils/dict'
 import { getConfigKey } from "@/api/system/config"
 import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, selectDictLabels } from '@/utils/ruoyi'
-
+import modelerStore from '@/components/Process/common/global'
 
 import SvgIcon from '@/components/SvgIcon'
 // 分页组件
@@ -55,10 +55,12 @@ import Draggable from '@/../lib/vuedraggable/dist/vuedraggable.umd.js'
 import { installI18n } from '@vForm/utils/i18n'
 import { loadExtension } from '@vForm/extension/extension-loader'
 
+
 const app = createApp(App)
 
 // 全局方法挂载
 app.config.globalProperties.useDict = useDict
+app.config.globalProperties.modelerStore = modelerStore
 app.config.globalProperties.download = download
 app.config.globalProperties.parseTime = parseTime
 app.config.globalProperties.resetForm = resetForm
@@ -79,6 +81,10 @@ app.component('Editor', Editor)
 app.component('svg-icon', SvgIcon)
 app.component('ContainerWidgets', ContainerWidgets)
 app.component('ContainerItems', ContainerItems)
+app.component('VFormRender', VFormRender)
+app.component('VFormDesigner', VFormDesigner)
+// 拖拽组件全局注册（vForm 设计器/渲染器模板中使用）
+app.component('draggable', Draggable)
 
 app.use(router)
 app.use(store)
@@ -86,10 +92,6 @@ app.use(plugins)
 app.use(elementIcons)
 app.use(ContainerWidgets)
 app.use(ContainerItems)
-app.component('VFormRender', VFormRender)
-app.component('VFormDesigner', VFormDesigner)
-// 拖拽组件全局注册（vForm 设计器/渲染器模板中使用）
-app.component('draggable', Draggable)
 installI18n(app)
 loadExtension(app)
 

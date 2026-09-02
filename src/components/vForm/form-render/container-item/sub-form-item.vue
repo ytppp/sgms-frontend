@@ -96,7 +96,6 @@
   import ContainerItemWrapper from './container-item-wrapper'
   import containerItemMixin from './containerItemMixin'
   import FieldComponents from '@vForm/form-designer/form-widget/field-widget/index'
-  import SvgIcon from '@/components/SvgIcon'
 
   export default {
     name: "sub-form-item",
@@ -105,7 +104,6 @@
     components: {
       ContainerItemWrapper,
       ...FieldComponents,
-      SvgIcon,
     },
     props: {
       widget: Object,

@@ -28,7 +28,7 @@
             <el-input-number v-model="formConfig.labelWidth" :min="0" style="width: 100%"></el-input-number>
           </el-form-item>
           <el-form-item :label="i18nt('designer.setting.formCss')">
-            <el-button type="info" icon="el-icon-edit" plain round @click="editFormCss">{{i18nt('designer.setting.addCss')}}</el-button>
+            <el-button type="info" icon="Edit" plain round @click="editFormCss">{{i18nt('designer.setting.addCss')}}</el-button>
           </el-form-item>
           <!-- -->
           <el-form-item :label="i18nt('designer.setting.customClass')">
@@ -39,7 +39,7 @@
           </el-form-item>
           <!-- -->
           <el-form-item :label="i18nt('designer.setting.globalFunctions')">
-            <el-button type="info" icon="el-icon-edit" plain round @click="editGlobalFunctions">{{i18nt('designer.setting.addEventHandler')}}</el-button>
+            <el-button type="info" icon="Edit" plain round @click="editGlobalFunctions">{{i18nt('designer.setting.addEventHandler')}}</el-button>
           </el-form-item>
           <el-form-item label-width="0">
             <el-divider class="custom-divider">{{i18nt('designer.setting.formSFCSetting')}}</el-divider>
@@ -57,20 +57,20 @@
 
         <el-collapse-item v-if="showEventCollapse()" name="2" :title="i18nt('designer.setting.eventSetting')">
           <el-form-item label="onFormCreated" label-width="150px">
-            <el-button type="info" icon="el-icon-edit" plain round
+            <el-button type="info" icon="Edit" plain round
                        :class="[getFormEventHandled('onFormCreated') ? 'button-text-highlight' : '']"
                        @click="editFormEventHandler('onFormCreated')">
               {{i18nt('designer.setting.addEventHandler')}}</el-button>
           </el-form-item>
           <el-form-item label="onFormMounted" label-width="150px">
-            <el-button type="info" icon="el-icon-edit" plain round
+            <el-button type="info" icon="Edit" plain round
                        :class="[getFormEventHandled('onFormMounted') ? 'button-text-highlight' : '']"
                        @click="editFormEventHandler('onFormMounted')">
               {{i18nt('designer.setting.addEventHandler')}}</el-button>
           </el-form-item>
           <!-- -->
           <el-form-item label="onFormDataChange" label-width="150px">
-            <el-button type="info" icon="el-icon-edit" plain round
+            <el-button type="info" icon="Edit" plain round
                        :class="[getFormEventHandled('onFormDataChange') ? 'button-text-highlight' : '']"
                        @click="editFormEventHandler('onFormDataChange')">
               {{i18nt('designer.setting.addEventHandler')}}</el-button>
@@ -78,7 +78,7 @@
           <!-- -->
           <!--
           <el-form-item label="onFormValidate">
-            <el-button type="info" icon="el-icon-edit" plain round @click="editFormEventHandler('onFormValidate')">
+            <el-button type="info" icon="Edit" plain round @click="editFormEventHandler('onFormValidate')">
               {{i18nt('designer.setting.addEventHandler')}}</el-button>
           </el-form-item>
           -->

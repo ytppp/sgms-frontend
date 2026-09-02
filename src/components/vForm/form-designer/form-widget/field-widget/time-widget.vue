@@ -98,8 +98,6 @@
 </script>
 
 <style lang="scss" scoped>
-	@use '@/assets/styles/variables.module.scss' as *;
-
   .auto-full-width {
     width: 100%;
 

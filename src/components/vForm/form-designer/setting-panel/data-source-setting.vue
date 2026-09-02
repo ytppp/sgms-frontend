@@ -8,9 +8,9 @@
           <span :title="ds.description">{{ds.uniqueName}}</span>
         </template>
         <template #extra>
-          <el-button type="primary" icon="el-icon-edit" plain circle
+          <el-button type="primary" icon="Edit" plain circle
                      size="small" @click="editDataSource(dsIdx)"></el-button>
-          <el-button type="danger" icon="el-icon-delete" plian circle
+          <el-button type="danger" icon="Delete" plain circle
                      size="small" @click="deleteDataSource(dsIdx)"></el-button>
         </template>
         <el-descriptions-item>
@@ -27,11 +27,11 @@
 
     <div class="ds-button-wrapper">
       <el-button-group>
-        <el-button type="primary" icon="el-icon-plus" plain @click="addDataSource">
+        <el-button type="primary" icon="Plus" plain @click="addDataSource">
           {{i18nt('designer.setting.addDataSource')}}</el-button>
-        <el-button icon="el-icon-bottom-left" plain :title="i18nt('designer.setting.importDataSource')"
+        <el-button icon="Bottom-left" plain :title="i18nt('designer.setting.importDataSource')"
                    @click="importDataSource"></el-button>
-        <el-button icon="el-icon-top-right" plain :title="i18nt('designer.setting.exportDataSource')"
+        <el-button icon="Top-right" plain :title="i18nt('designer.setting.exportDataSource')"
                    @click="exportDataSource"></el-button>
       </el-button-group>
     </div>
@@ -96,12 +96,12 @@
               </el-form-item>
             </el-col>
             <el-col :span="3">
-              <el-button icon="el-icon-delete" plain circle @click="deleteRequestHeader(hIdx)"></el-button>
+              <el-button icon="Delete" plain circle @click="deleteRequestHeader(hIdx)"></el-button>
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="6">
-              <el-button type="default" icon="el-icon-plus" @click="addRequestHeader">
+              <el-button type="default" icon="Plus" @click="addRequestHeader">
                 {{i18nt('designer.setting.addRequestHeader')}}</el-button>
             </el-col>
           </el-row>
@@ -129,12 +129,12 @@
               </el-form-item>
             </el-col>
             <el-col :span="3">
-              <el-button icon="el-icon-delete" plain circle @click="deleteRequestParam(pIdx)"></el-button>
+              <el-button icon="Delete" plain circle @click="deleteRequestParam(pIdx)"></el-button>
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="6">
-              <el-button type="default" icon="el-icon-plus" @click="addRequestParam">
+              <el-button type="default" icon="Plus" @click="addRequestParam">
                 {{i18nt('designer.setting.addRequestParam')}}</el-button>
             </el-col>
           </el-row>
@@ -162,12 +162,12 @@
               </el-form-item>
             </el-col>
             <el-col :span="3">
-              <el-button icon="el-icon-delete" plain circle @click="deleteRequestData(dIdx)"></el-button>
+              <el-button icon="Delete" plain circle @click="deleteRequestData(dIdx)"></el-button>
             </el-col>
           </el-row>
           <el-row>
             <el-col :span="6">
-              <el-button type="default" icon="el-icon-plus" @click="addRequestData">
+              <el-button type="default" icon="Plus" @click="addRequestData">
                 {{i18nt('designer.setting.addRequestData')}}</el-button>
             </el-col>
           </el-row>
@@ -209,12 +209,12 @@
                   </el-form-item>
                 </el-col>
                 <el-col :span="3">
-                  <el-button icon="el-icon-delete" plain circle @click="deleteDataSet(dIdx)"></el-button>
+                  <el-button icon="Delete" plain circle @click="deleteDataSet(dIdx)"></el-button>
                 </el-col>
               </el-row>
               <el-row class="rd-row" :gutter="8">
                 <el-col :span="6">
-                  <el-button type="default" icon="el-icon-plus" @click="addDataSet">
+                  <el-button type="default" icon="Plus" @click="addDataSet">
                     {{i18nt('designer.setting.addDataSet')}}</el-button>
                 </el-col>
               </el-row>
@@ -318,14 +318,12 @@
   import i18n from '@vForm/utils/i18n'
   import CodeEditor from '@vForm/code-editor/index'
   import {copyToClipboard, deepClone, generateId, runDataSourceRequest} from '@vForm/utils/util'
-  import { Platform } from '@element-plus/icons-vue'
 
   export default {
     name: "data-source-setting",
     mixins: [i18n],
     inject: ['getGlobalDsv'],
     components: {
-      Platform,
       CodeEditor,
     },
     props: {

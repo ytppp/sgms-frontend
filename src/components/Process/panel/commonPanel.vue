@@ -13,7 +13,7 @@
         <el-form-item label="流程分类" prop="processCategory">
           <el-select v-model="bpmnFormData.processCategory" placeholder="请选择流程分类" @change="updateElementTask('processCategory')">
             <el-option
-                v-for="dict in dict.type.sys_process_category"
+                v-for="dict in sys_process_category"
                 :key="dict.value"
                 :label="dict.label"
                 :value="dict.value"
@@ -38,10 +38,14 @@
 
 <script>
 import {StrUtil} from '@/utils/StrUtil'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: "CommonPanel",
-  dicts: ['sys_process_category'],
+  setup() {
+    const { sys_process_category } = useDict('sys_process_category')
+    return { sys_process_category }
+  },
   /** 组件传值  */
   props : {
     id: {

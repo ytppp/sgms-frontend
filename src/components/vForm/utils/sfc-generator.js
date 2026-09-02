@@ -197,9 +197,9 @@ ${ctn.cols.map(col => {
 
       rowHtml.push(`<div class="sub-form-action-column hide-label">
             <div class="action-button-column">
-              <el-button circle type="" ${vue3Flag?`icon="Plus"`:`icon="el-icon-circle-plus-outline"`} @click="insertSubFormRow('${ctn.id}',sfrIdx)"
+              <el-button circle type="" ${vue3Flag?`icon="Plus"`:`icon="CirclePlus"`} @click="insertSubFormRow('${ctn.id}',sfrIdx)"
                          title="插入行"></el-button>
-              <el-button circle type="" ${vue3Flag?`icon="Delete"`:`icon="el-icon-delete"`} @click="deleteSubFormRow('${ctn.id}',sfrIdx)"
+              <el-button circle type="" ${vue3Flag?`icon="Delete"`:`icon="Delete"`} @click="deleteSubFormRow('${ctn.id}',sfrIdx)"
                          title="删除行"></el-button>
               <span class="row-number-span">#{{sfrIdx+1}}</span>
             </div>
@@ -249,9 +249,9 @@ ${ctn.cols.map(col => {
 
       rowHtml.push(`<div class="grid-sub-form sub-form-action-column hide-label">
             <div class="action-button-column">
-              <el-button circle type="" ${vue3Flag?`icon="Plus"`:`icon="el-icon-circle-plus-outline"`} @click="insertSubFormRow('${ctn.id}',sfrIdx)"
+              <el-button circle type="" icon="Plus" @click="insertSubFormRow('${ctn.id}',sfrIdx)"
                          title="插入行"></el-button>
-              <el-button circle type="" ${vue3Flag?`icon="Delete"`:`icon="el-icon-delete"`} @click="deleteSubFormRow('${ctn.id}',sfrIdx)"
+              <el-button circle type="" icon="Delete" @click="deleteSubFormRow('${ctn.id}',sfrIdx)"
                          title="删除行"></el-button>
               <span class="row-number-span">#{{sfrIdx+1}}</span>
             </div>

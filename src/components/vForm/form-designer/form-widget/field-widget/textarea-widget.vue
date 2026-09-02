@@ -96,8 +96,6 @@
 </script>
 
 <style lang="scss" scoped>
-	@use '@/assets/styles/variables.module.scss' as *;
-
   .readonly-mode-field {
     display: inline-block;
     white-space: pre-wrap;

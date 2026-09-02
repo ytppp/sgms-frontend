@@ -106,8 +106,6 @@
 </script>
 
 <style lang="scss" scoped>
-	@use '@/assets/styles/variables.module.scss' as *;
-  
   .full-width-input {
     width: 100% !important;
   }

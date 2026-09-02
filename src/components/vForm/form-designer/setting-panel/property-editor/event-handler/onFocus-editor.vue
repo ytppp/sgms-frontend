@@ -1,6 +1,6 @@
 <template>
   <el-form-item label="onFocus" label-width="150px">
-    <el-button type="info" icon="el-icon-edit" plain round :class="[eventHandled ? 'button-text-highlight' : '']"
+    <el-button type="info" icon="Edit" plain round :class="[eventHandled ? 'button-text-highlight' : '']"
                @click="editEventHandler('onFocus', eventParams)">
       {{i18nt('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

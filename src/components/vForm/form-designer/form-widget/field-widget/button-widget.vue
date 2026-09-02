@@ -83,8 +83,6 @@
 </script>
 
 <style lang="scss" scoped>
-	@use '@/assets/styles/variables.module.scss' as *;
-
   .hide-text-span :deep(span) {
     display: none;
   }

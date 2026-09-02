@@ -11,14 +11,10 @@
 
 <script>
   import i18n from '@vForm/utils/i18n'
-  import { Bottom, Top, Back, Right } from '@element-plus/icons-vue'
 
   export default {
     name: "vf-drawer-direction-editor",
     mixins: [i18n],
-    components: {
-      Back, Right, Bottom, Top
-    },
     props: {
       designer: Object,
       selectedWidget: Object,

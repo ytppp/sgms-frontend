@@ -163,15 +163,15 @@
 					<el-table-column :label="i18nt('designer.setting.renderFunction')" width="80" fixed="right" align="center">
 						<template #default="scope">
 							<el-button :disabled="scope.row.formatS !== 'render'" @click="showRenderDialog(scope.row)"
-												 size="small" plain round icon="el-icon-edit"></el-button>
+												 size="small" plain round icon="Edit"></el-button>
 						</template>
 					</el-table-column>
 					<el-table-column :label="i18nt('designer.setting.actionColumn')" width="100" fixed="right" align="center">
 						<template #default="scope">
 							<el-button :title="i18nt('designer.setting.addTableColumn')" size="small" circle
-										@click="addCol" icon="el-icon-plus"></el-button>
+										@click="addCol" icon="Plus"></el-button>
 							<el-button :title="i18nt('designer.setting.deleteTableColumn')" size="small" circle
-								@click="handleDelete(scope.$index, scope.row)" icon="el-icon-minus"></el-button>
+								@click="handleDelete(scope.$index, scope.row)" icon="Minus"></el-button>
 						</template>
 					</el-table-column>
 				</el-table>
@@ -225,19 +225,19 @@
 								</el-col>
 								<el-col :span="3">
 									<el-form-item :prop="'operationButtons.' + bIdx + '.name'"
-																:label="i18nt('designer.setting.operationButtonName')" :rules="nameRules">
+																:label="i18nt('designer.setting.operationButtonName')" :rules="nameRules" label-position="top">
 										<el-input v-model="btn.name" @focus="onButtonNameFocus"
 															@change="(value) => onButtonNameChange(value, bIdx)"
 															:placeholder="i18nt('designer.setting.operationButtonName')"></el-input>
 									</el-form-item>
 								</el-col>
 								<el-col :span="3">
-									<el-form-item :prop="'operationButtons.' + bIdx + '.label'" :label="i18nt('designer.setting.operationButtonLabel')">
+									<el-form-item :prop="'operationButtons.' + bIdx + '.label'" :label="i18nt('designer.setting.operationButtonLabel')" label-position="top">
 										<el-input v-model="btn.label" :placeholder="i18nt('designer.setting.operationButtonLabel')"></el-input>
 									</el-form-item>
 								</el-col>
 								<el-col :span="4">
-									<el-form-item :prop="'operationButtons.' + bIdx + '.type'" :label="i18nt('designer.setting.operationButtonType')">
+									<el-form-item :prop="'operationButtons.' + bIdx + '.type'" :label="i18nt('designer.setting.operationButtonType')" label-position="top">
 										<el-select v-model="btn.type" :placeholder="i18nt('designer.setting.operationButtonType')">
 											<el-option value="text">text</el-option>
 											<el-option value="primary">primary</el-option>
@@ -249,7 +249,7 @@
 									</el-form-item>
 								</el-col>
 								<el-col :span="3">
-									<el-form-item :prop="'operationButtons.' + bIdx + '.size'" :label="i18nt('designer.setting.operationButtonSize')">
+									<el-form-item :prop="'operationButtons.' + bIdx + '.size'" :label="i18nt('designer.setting.operationButtonSize')" label-position="top">
 										<el-select v-model="btn.size" :placeholder="i18nt('designer.setting.operationButtonSize')">
 											<el-option value="large">large</el-option>
 											<el-option value="default">default</el-option>
@@ -258,29 +258,29 @@
 									</el-form-item>
 								</el-col>
 								<el-col :span="3">
-									<el-form-item :prop="'operationButtons.' + bIdx + '.round'" :label="i18nt('designer.setting.operationButtonRound')">
+									<el-form-item :prop="'operationButtons.' + bIdx + '.round'" :label="i18nt('designer.setting.operationButtonRound')" label-position="top">
 										<el-switch v-model="btn.round" ></el-switch>
 									</el-form-item>
 								</el-col>
 								<el-col :span="3">
-									<el-form-item :prop="'operationButtons.' + bIdx + '.hidden'" :label="i18nt('designer.setting.operationButtonHidden')">
+									<el-form-item :prop="'operationButtons.' + bIdx + '.hidden'" :label="i18nt('designer.setting.operationButtonHidden')" label-position="top">
 										<el-switch v-model="btn.hidden" ></el-switch>
 									</el-form-item>
 								</el-col>
 								<el-col :span="3">
-									<el-form-item :prop="'operationButtons.' + bIdx + '.disabled'" :label="i18nt('designer.setting.operationButtonDisabled')">
+									<el-form-item :prop="'operationButtons.' + bIdx + '.disabled'" :label="i18nt('designer.setting.operationButtonDisabled')" label-position="top">
 										<el-switch v-model="btn.disabled" ></el-switch>
 									</el-form-item>
 								</el-col>
 								<el-col :span="1">
-									<el-button icon="el-icon-delete" plain circle @click="deleteOperationButton(bIdx)"></el-button>
+									<el-button icon="Delete" plain circle @click="deleteOperationButton(bIdx)"></el-button>
 								</el-col>
 							</el-row>
 						</template>
 					</draggable>
 					<el-row :gutter="0">
 						<el-col :span="4">
-							<el-button type="primary" size="default" icon="el-icon-plus"
+							<el-button type="primary" size="default" icon="Plus"
 												 plain round @click="addOperationButton">{{i18nt('designer.setting.addOperationButton')}}</el-button>
 						</el-col>
 					</el-row>

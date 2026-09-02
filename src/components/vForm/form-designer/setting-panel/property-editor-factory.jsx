@@ -148,7 +148,7 @@ export const createEventHandlerEditor = function (eventPropName, eventParams) {
     render(h) {
       return (
         <el-form-item label={eventPropName} label-width="150px">
-            <el-button type="info" icon="el-icon-edit" plain round onClick={this.editEventHandler}>
+            <el-button type="info" icon="Edit" plain round onClick={this.editEventHandler}>
             {translate('designer.setting.addEventHandler')}</el-button>
         </el-form-item>
       )

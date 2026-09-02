@@ -18,7 +18,7 @@
       <el-form-item label="监听类型" prop="type">
         <el-select v-model="queryParams.type" placeholder="请选择监听类型" clearable>
           <el-option
-            v-for="dict in dict.type.sys_listener_type"
+            v-for="dict in sys_listener_type"
             :key="dict.value"
             :label="dict.label"
             :value="dict.value"
@@ -84,13 +84,13 @@
       <el-table-column label="名称" align="center" prop="name" />
       <el-table-column label="监听类型" align="center" prop="type">
         <template #default="scope">
-          <dict-tag :options="dict.type.sys_listener_type" :value="scope.row.type" />
+          <dict-tag :options="sys_listener_type" :value="scope.row.type" />
         </template>
       </el-table-column>
       <el-table-column label="事件类型" align="center" prop="eventType" />
       <el-table-column label="值类型" align="center" prop="valueType">
         <template #default="scope">
-          <dict-tag :options="dict.type.sys_listener_value_type" :value="scope.row.valueType" />
+          <dict-tag :options="sys_listener_value_type" :value="scope.row.valueType" />
         </template>
       </el-table-column>
       <el-table-column label="执行内容" align="center" prop="value" />
@@ -133,7 +133,7 @@
         <el-form-item label="监听类型" prop="type">
           <el-select v-model="form.type" placeholder="请选择监听类型">
             <el-option
-              v-for="dict in dict.type.sys_listener_type"
+              v-for="dict in sys_listener_type"
               :key="dict.value"
               :label="dict.label"
               :value="dict.value"
@@ -163,7 +163,7 @@
         <el-form-item label="值类型" prop="valueType">
           <el-radio-group v-model="form.valueType">
             <el-radio
-              v-for="dict in dict.type.sys_listener_value_type"
+              v-for="dict in sys_listener_value_type"
               :key="dict.value"
               :label="dict.value"
               >{{ dict.label }}</el-radio
@@ -192,15 +192,14 @@ import {
   addListener,
   updateListener,
 } from '@/api/flowable/listener'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: 'Listener',
-  dicts: [
-    'sys_listener_value_type',
-    'sys_listener_type',
-    'common_status',
-    'sys_listener_event_type',
-  ],
+  setup() {
+    const { sys_listener_value_type, sys_listener_type, common_status, sys_listener_event_type } = useDict('sys_listener_value_type', 'sys_listener_type', 'common_status', 'sys_listener_event_type')
+    return { sys_listener_value_type, sys_listener_type, common_status, sys_listener_event_type }
+  },
   data() {
     return {
       // 遮罩层

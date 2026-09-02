@@ -22,7 +22,7 @@
             <el-input type="text" v-model="tpItem.options.label" style="width: 155px"></el-input>
             <i class="iconfont icon-drag drag-option"></i>
             <el-button circle plain size="small" type="danger" @click="deleteTabPane(selectedWidget, tpIdx)"
-                       icon="el-icon-minus" class="col-delete-button"></el-button>
+                       icon="Minus" class="col-delete-button"></el-button>
           </li>
         </template>
       </draggable>

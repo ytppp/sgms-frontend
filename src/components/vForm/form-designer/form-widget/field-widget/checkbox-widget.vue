@@ -100,8 +100,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  @use '@/assets/styles/variables.module.scss' as *;
-
-</style>

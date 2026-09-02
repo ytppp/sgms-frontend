@@ -94,8 +94,6 @@
 </script>
 
 <style lang="scss" scoped>
-	@use '@/assets/styles/variables.module.scss' as *;
-  
   .readonly-mode-color {
     :deep(.el-color-picker) {
       display: none;

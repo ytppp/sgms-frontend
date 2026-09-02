@@ -94,14 +94,12 @@ import {
 import { MOCK_CASE_URL, VARIANT_FORM_VERSION } from '@vForm/utils/config'
 import i18n, { changeLocale } from '@vForm/utils/i18n'
 import axios from 'axios'
-import SvgIcon from "@/components/SvgIcon/index"
 
 export default {
   name: "VFormDesigner",
   componentName: "VFormDesigner",
   mixins: [i18n],
   components: {
-    SvgIcon,
     WidgetPanel,
     ToolbarPanel,
     SettingPanel,

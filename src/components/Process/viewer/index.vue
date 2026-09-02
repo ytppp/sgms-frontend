@@ -172,5 +172,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../style/flow-viewer.scss";
+@use "../style/flow-viewer.scss";
 </style>

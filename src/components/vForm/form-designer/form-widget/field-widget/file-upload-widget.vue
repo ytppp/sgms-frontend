@@ -40,9 +40,8 @@
   import i18n, {translate} from '@vForm/utils/i18n'
   import {deepClone} from '@vForm/utils/util'
   import fieldMixin from '@vForm/form-designer/form-widget/field-widget/fieldMixin'
-  import SvgIcon from '@/components/SvgIcon'
 
-  let selectFileText = "'" + translate('render.hint.selectFile') + "'"
+ let selectFileText = "'" + translate('render.hint.selectFile') + "'"
 
   export default {
     name: "file-upload-widget",
@@ -75,7 +74,6 @@
 
     },
     components: {
-      SvgIcon,
       FormItemWrapper,
     },
     data() {

@@ -464,7 +464,6 @@
 </template>
 
 <script setup>
-import draggable from "vuedraggable/dist/vuedraggable.common"
 import { isNumberStr } from '@/utils/index'
 import IconsDialog from './IconsDialog'
 import TreeNodeDialog from './TreeNodeDialog'

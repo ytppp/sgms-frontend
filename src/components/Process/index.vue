@@ -27,10 +27,10 @@
             <el-tooltip effect="dark" content="前进" placement="bottom">
               <el-button icon="Right" @click="modeler.get('commandStack').redo()" />
             </el-tooltip>
-<!--            <el-button icon="el-icon-share" @click="processSimulation">-->
+<!--            <el-button icon="Share" @click="processSimulation">-->
 <!--              {{ this.simulationStatus ? '退出模拟' : '开启模拟' }}-->
 <!--            </el-button>-->
-<!--            <el-button icon="el-icon-first-aid-kit" @click="handlerIntegrityCheck">-->
+<!--            <el-button icon="FirstAidKit" @click="handlerIntegrityCheck">-->
 <!--              {{ this.bpmnlintStatus ? '关闭检查' : '开启检查' }}-->
 <!--            </el-button>-->
           </el-button-group>

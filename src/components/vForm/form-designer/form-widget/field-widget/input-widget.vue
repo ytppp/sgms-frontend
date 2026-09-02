@@ -28,7 +28,6 @@
 
 <script>
   import FormItemWrapper from './form-item-wrapper'
-  import SvgIcon from '@/components/SvgIcon'
   import emitter from '@vForm/utils/emitter'
   import i18n, {translate} from '@vForm/utils/i18n'
   import fieldMixin from '@vForm/form-designer/form-widget/field-widget/fieldMixin'
@@ -65,7 +64,6 @@
     },
     components: {
       FormItemWrapper,
-      SvgIcon,
     },
     data() {
       return {
@@ -112,8 +110,3 @@
     }
   }
 </script>
-
-<style lang="scss" scoped>
-  @use '@/assets/styles/variables.module.scss' as *;
-
-</style>

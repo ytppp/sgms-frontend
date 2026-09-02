@@ -94,7 +94,6 @@
 </template>
 
 <script>
-  import SvgIcon from '@/components/SvgIcon'
   import {containers as CONS, basicFields as BFS, advancedFields as AFS, customFields as CFS} from "./widgetsConfig"
   import {formTemplates} from './templatesConfig'
   import {addWindowResizeHandler, generateId} from '@vForm/utils/util'
@@ -113,9 +112,6 @@
   export default {
     name: "FieldPanel",
     mixins: [i18n],
-    components: {
-      SvgIcon
-    },
     props: {
       designer: Object,
     },

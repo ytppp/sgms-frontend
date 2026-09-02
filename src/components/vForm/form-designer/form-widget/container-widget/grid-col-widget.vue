@@ -45,7 +45,6 @@
 <script>
   import i18n from '@vForm/utils/i18n'
   import FieldComponents from '@vForm/form-designer/form-widget/field-widget/index'
-  import SvgIcon from '@/components/SvgIcon'
   import refMixinDesign from "@vForm/form-designer/refMixinDesign"
 
   export default {
@@ -55,7 +54,6 @@
     inject: ['refList'],
     components: {
       ...FieldComponents,
-      SvgIcon,
     },
     props: {
       widget: Object,

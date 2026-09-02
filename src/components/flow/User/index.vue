@@ -168,10 +168,14 @@
 <script>
 import { listUser, deptTreeSelect } from '@/api/system/user'
 import { StrUtil } from '@/utils/StrUtil'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: 'FlowUser',
-  dicts: ['sys_normal_disable', 'sys_user_sex'],
+  setup() {
+    const { sys_normal_disable, sys_user_sex } = useDict('sys_normal_disable', 'sys_user_sex')
+    return { sys_normal_disable, sys_user_sex }
+  },
   // 接受父组件的值
   props: {
     // 回显数据传值

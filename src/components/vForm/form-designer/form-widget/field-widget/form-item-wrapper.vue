@@ -61,15 +61,11 @@
 </template>
 
 <script>
-  import SvgIcon from '@/components/SvgIcon'
   import i18n from '@vForm/utils/i18n'
 
   export default {
     name: "form-item-wrapper",
     mixins: [i18n],
-    components: {
-      SvgIcon
-    },
     props: {
       field: Object,
       designer: Object,
@@ -225,6 +221,7 @@
 
 <style lang="scss" scoped>
   @use '@/assets/styles/variables.module.scss' as *;
+  @use '@vForm/styles/global.scss';
 
   .design-time-bottom-margin {
     margin-bottom: 5px;

@@ -16,10 +16,10 @@
         <div v-if="leftActionColumn" class="sub-form-action-column hide-label">
           <div class="action-button-column">
             <el-button :disabled="actionDisabled || insertDisabled"
-                       circle type="" icon="el-icon-circle-plus-outline" @click="insertSubFormRow(sfrIdx)"
+                       circle type="" icon="CirclePlus" @click="insertSubFormRow(sfrIdx)"
                        v-show="!isReadMode" :title="i18nt('render.hint.insertSubFormRow')"></el-button>
             <el-button :disabled="actionDisabled || deleteDisabled"
-                       circle type="" icon="el-icon-delete" @click="deleteSubFormRow(sfrIdx)"
+                       circle type="" icon="Delete" @click="deleteSubFormRow(sfrIdx)"
                        v-show="!isReadMode" :title="i18nt('render.hint.deleteSubFormRow')"></el-button>
             <span v-if="widget.options.showRowNumber" class="row-number-span">#{{sfrIdx+1}}</span>
           </div>
@@ -40,10 +40,10 @@
         <div v-if="!leftActionColumn" class="sub-form-action-column hide-label">
           <div class="action-button-column">
             <el-button :disabled="actionDisabled || insertDisabled"
-                       circle type="" icon="el-icon-circle-plus-outline" @click="insertSubFormRow(sfrIdx)"
+                       circle type="" icon="CirclePlus" @click="insertSubFormRow(sfrIdx)"
                        v-show="!isReadMode" :title="i18nt('render.hint.insertSubFormRow')"></el-button>
             <el-button :disabled="actionDisabled || deleteDisabled"
-                       circle type="" icon="el-icon-delete" @click="deleteSubFormRow(sfrIdx)"
+                       circle type="" icon="Delete" @click="deleteSubFormRow(sfrIdx)"
                        v-show="!isReadMode" :title="i18nt('render.hint.deleteSubFormRow')"></el-button>
           </div>
         </div>

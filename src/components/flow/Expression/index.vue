@@ -34,7 +34,7 @@
       <el-table-column label="表达式内容" align="center" prop="expression" />
       <el-table-column label="表达式类型" align="center" prop="dataType">
         <template #default="scope">
-          <dict-tag :options="dict.type.exp_data_type" :value="scope.row.dataType" />
+          <dict-tag :options="exp_data_type" :value="scope.row.dataType" />
         </template>
       </el-table-column>
     </el-table>
@@ -54,10 +54,14 @@
 <script>
 import { listExpression } from '@/api/flowable/expression'
 import { StrUtil } from '@/utils/StrUtil'
+import { useDict } from '@/utils/dict'
 
 export default {
   name: 'Expression',
-  dicts: ['sys_common_status', 'exp_data_type'],
+  setup() {
+    const { sys_common_status, exp_data_type } = useDict('sys_common_status', 'exp_data_type')
+    return { sys_common_status, exp_data_type }
+  },
   // 接受父组件的值
   props: {
     // 回显数据传值

@@ -11,7 +11,7 @@
               <el-input v-model="option.label" size="small" style="width: 100px"></el-input>
               <i class="iconfont icon-drag drag-option"></i>
               <el-button circle plain size="small" type="danger" @click="deleteOption(option, idx)"
-                         icon="el-icon-minus" class="col-delete-button"></el-button>
+                         icon="Minus" class="col-delete-button"></el-button>
             </el-radio>
           </li>
         </template>
@@ -29,7 +29,7 @@
               <el-input v-model="option.label" size="small" style="width: 100px"></el-input>
               <i class="iconfont icon-drag drag-option"></i>
               <el-button circle plain size="small" type="danger" @click="deleteOption(option, idx)"
-                         icon="el-icon-minus" class="col-delete-button"></el-button>
+                         icon="Minus" class="col-delete-button"></el-button>
             </el-checkbox>
           </li>
         </template>
