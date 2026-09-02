@@ -27,7 +27,7 @@ import './permission' // permission control
 
 import { useDict } from '@/utils/dict'
 import { getConfigKey } from "@/api/system/config"
-import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, selectDictLabels } from '@/utils/ruoyi'
+import { parseTime, resetForm, addDateRange, handleTree, selectDictLabel, selectDictLabels } from '@/utils/sgms'
 import modelerStore from '@/components/Process/common/global'
 
 import SvgIcon from '@/components/SvgIcon'

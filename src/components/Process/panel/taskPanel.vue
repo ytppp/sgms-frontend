@@ -214,7 +214,7 @@ export default {
       // 流程节点信息上取值
       for (let key in this.bpmnFormData) {
         const value = this.modelerStore.element?.businessObject[key] || this.bpmnFormData[key];
-        this.$set(this.bpmnFormData, key, value);
+        this.bpmnFormData[key] = value;
       }
       // 人员信息回显
       this.checkValuesEcho(this.bpmnFormData);
@@ -377,9 +377,9 @@ export default {
     handleSelectData(key, value) {
       for (let oldKey in this.selectData) {
         if (key !== oldKey) {
-          this.$set(this.selectData, oldKey, null);
+          this.selectData[oldKey] = null;
         } else {
-          this.$set(this.selectData, oldKey, value);
+          this.selectData[oldKey] = value;
         }
       }
     },

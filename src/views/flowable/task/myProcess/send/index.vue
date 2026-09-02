@@ -182,9 +182,9 @@ export default {
         // 复制对象的属性值给新的对象
         Object.assign(param, this.formData);
         if (this.multiInstanceVars) {
-          this.$set(param, this.multiInstanceVars, this.checkValues);
+          param[this.multiInstanceVars] = this.checkValues;
         } else {
-          this.$set(param, "approval", this.checkValues);
+          param["approval"] = this.checkValues;
         }
         // 启动流程并将表单数据加入流程变量
         definitionStart(this.procDefId, param).then(res => {

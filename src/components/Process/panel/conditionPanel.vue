@@ -97,26 +97,26 @@ export default {
       this.bpmnElementSourceRef = this.modelerStore.element.businessObject.sourceRef;
       if (this.bpmnElementSourceRef && this.bpmnElementSourceRef.default && this.bpmnElementSourceRef.default.id === this.modelerStore.element.id) {
         // 默认
-        this.$set(this.bpmnFormData, "type", "default");
+        this.bpmnFormData["type"] = "default";
       } else if (!this.modelerStore.element.businessObject.conditionExpression) {
         // 普通
-        this.$set(this.bpmnFormData, "type", "normal");
+        this.bpmnFormData["type"] = "normal";
       } else {
         // 带条件
         const conditionExpression = this.modelerStore.element.businessObject.conditionExpression;
         this.bpmnFormData = {...conditionExpression, type: "condition"};
         // resource 可直接标识 是否是外部资源脚本
         if (this.bpmnFormData.resource) {
-          this.$set(this.bpmnFormData, "conditionType", "script");
-          this.$set(this.bpmnFormData, "scriptType", "externalScript");
+          this.bpmnFormData["conditionType"] = "script";
+          this.bpmnFormData["scriptType"] = "externalScript";
           return;
         }
         if (conditionExpression.language) {
-          this.$set(this.bpmnFormData, "conditionType", "script");
-          this.$set(this.bpmnFormData, "scriptType", "inlineScript");
+          this.bpmnFormData["conditionType"] = "script";
+          this.bpmnFormData["scriptType"] = "inlineScript";
           return;
         }
-        this.$set(this.bpmnFormData, "conditionType", "expression");
+        this.bpmnFormData["conditionType"] = "expression";
       }
     },
 
@@ -162,9 +162,9 @@ export default {
       } else {
         if (scriptType === "inlineScript") {
           condition = this.modelerStore.moddle.create("bpmn:FormalExpression", {body, language});
-          this.$set(this.bpmnFormData, "resource", "");
+          this.bpmnFormData["resource"] = "";
         } else {
-          this.$set(this.bpmnFormData, "body", "");
+          this.bpmnFormData["body"] = "";
           condition = this.modelerStore.moddle.create("bpmn:FormalExpression", {resource, language});
         }
       }

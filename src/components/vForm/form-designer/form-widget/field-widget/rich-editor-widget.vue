@@ -24,8 +24,7 @@
   import i18n, {translate} from '@vForm/utils/i18n'
   import {deepClone} from '@vForm/utils/util'
   import fieldMixin from '@vForm/form-designer/form-widget/field-widget/fieldMixin'
-  import { QuillEditor } from "@vueup/vue-quill"
-  import "@vueup/vue-quill/dist/vue-quill.snow.css"
+  import { quillEditor as QuillEditor } from 'vue3-quill'
 
   export default {
     name: "rich-editor-widget",

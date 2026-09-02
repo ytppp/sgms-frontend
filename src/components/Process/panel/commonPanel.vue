@@ -85,8 +85,8 @@ export default {
       // this.bpmnFormData = JSON.parse(JSON.stringify(this.modelerStore.element.businessObject));
       this.bpmnFormData = Object.assign({}, this.modelerStore.element.businessObject);
 
-      // 使用 $set 确保 documentationValue 是响应式的
-      this.$set(this.bpmnFormData, 'documentationValue', this.modelerStore.element.businessObject.documentation?.[0]?.text || '');
+      // Vue 3 Proxy 自动追踪新属性，直接赋值即可
+      this.bpmnFormData.documentationValue = this.modelerStore.element.businessObject.documentation?.[0]?.text || '';
     },
     updateElementTask(key) {
       const taskAttr = Object.create(null);

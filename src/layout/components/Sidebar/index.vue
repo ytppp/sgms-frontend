@@ -11,7 +11,7 @@
         :active-text-color="theme"
         :collapse-transition="false"
         mode="vertical"
-        :class="sideTheme"
+        :class="[sideTheme, 'sgms-menu', `sgms-menu-${size}`]"
       >
         <sidebar-item
           v-for="(route, index) in sidebarRouters"
@@ -42,6 +42,7 @@ const showLogo = computed(() => settingsStore.sidebarLogo)
 const sideTheme = computed(() => settingsStore.sideTheme)
 const theme = computed(() => settingsStore.theme)
 const isCollapse = computed(() => !appStore.sidebar.opened)
+const size = computed(() => appStore.size)
 
 // 获取菜单背景色
 const getMenuBackground = computed(() => {
@@ -98,6 +99,41 @@ const activeMenu = computed(() => {
 
     .el-sub-menu__title {
       color: v-bind(getMenuTextColor);
+    }
+  }
+}
+.sgms-menu {
+  // large
+  &.sgms-menu-large {
+    :deep(.el-menu-item),
+    :deep(.el-submenu__title) {
+      font-size: 16px;
+      line-height: 56px;
+    }
+    :deep(.el-menu-item-group__title) {
+      font-size:14px;
+    }
+  }
+  // default
+  &.sgms-menu-default {
+    :deep(.el-menu-item),
+    :deep(.el-submenu__title) {
+      font-size: 15px;
+      line-height: 48px;
+    }
+    :deep(.el-menu-item-group__title) {
+      font-size:13px;
+    }
+  }
+  // small
+  &.sgms-menu-small {
+    :deep(.el-menu-item),
+    :deep(.el-submenu__title) {
+      font-size: 14px;
+      line-height: 40px;
+    }
+    :deep(.el-menu-item-group__title) {
+      font-size:12px;
     }
   }
 }

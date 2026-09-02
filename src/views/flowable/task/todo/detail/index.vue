@@ -242,12 +242,12 @@ export default {
         if (selection instanceof Array) {
           const selectVal = selection.map(item => item.userId.toString());
           if (this.multiInstanceVars) {
-            this.$set(this.taskForm.variables, this.multiInstanceVars,  selectVal);
+            this.taskForm.variables[this.multiInstanceVars] = selectVal;
           } else {
-            this.$set(this.taskForm.variables, "approval", selectVal.join(','));
+            this.taskForm.variables["approval"] = selectVal.join(',');
           }
         } else {
-          this.$set(this.taskForm.variables, "approval", selection.userId.toString());
+          this.taskForm.variables["approval"] = selection.userId.toString();
         }
       }
     },
@@ -256,9 +256,9 @@ export default {
       if (selection) {
         if (selection instanceof Array) {
           const selectVal = selection.map(item => item.roleId.toString());
-          this.$set(this.taskForm.variables, "approval", selectVal.join(','));
+          this.taskForm.variables["approval"] = selectVal.join(',');
         } else {
-          this.$set(this.taskForm.variables, "approval", selection);
+          this.taskForm.variables["approval"] = selection;
         }
       }
     },
