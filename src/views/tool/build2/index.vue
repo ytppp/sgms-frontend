@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="app-container">
     <VFormDesigner 
       ref="vfDesignerRef"
       :global-dsv="globalDsv"

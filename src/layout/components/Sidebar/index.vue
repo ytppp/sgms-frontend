@@ -1,6 +1,5 @@
 <template>
-  <div :class="['sidebar-theme-wrapper', {'has-logo':showLogo}, sideTheme]" class="sidebar-container">
-    <logo v-if="showLogo" :collapse="isCollapse" />
+  <div :class="['sidebar-theme-wrapper', sideTheme]" class="sidebar-container">
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
@@ -25,7 +24,6 @@
 </template>
 
 <script setup>
-import Logo from './Logo'
 import SidebarItem from './SidebarItem'
 import variables from '@/assets/styles/variables.module.scss'
 import useAppStore from '@/store/modules/app'
@@ -38,7 +36,6 @@ const settingsStore = useSettingsStore()
 const permissionStore = usePermissionStore()
 
 const sidebarRouters = computed(() => permissionStore.sidebarRouters)
-const showLogo = computed(() => settingsStore.sidebarLogo)
 const sideTheme = computed(() => settingsStore.sideTheme)
 const theme = computed(() => settingsStore.theme)
 const isCollapse = computed(() => !appStore.sidebar.opened)
@@ -71,69 +68,69 @@ const activeMenu = computed(() => {
 
 <style lang="scss" scoped>
 .sidebar-container {
-  background-color: v-bind(getMenuBackground);
-  
-  .scrollbar-wrapper {
-    background-color: v-bind(getMenuBackground);
-  }
+  // background-color: v-bind(getMenuBackground);
 
-  .el-menu {
-    border: none;
-    height: 100%;
-    width: 100% !important;
-    
-    .el-menu-item, .el-sub-menu__title {
-      &:hover {
-        background-color: var(--menu-hover, rgba(0, 0, 0, 0.06)) !important;
-      }
-    }
+  // .scrollbar-wrapper {
+  //   background-color: v-bind(getMenuBackground);
+  // }
 
-    .el-menu-item {
-      color: v-bind(getMenuTextColor);
-      
-      &.is-active {
-        color: var(--menu-active-text, #409eff);
-        background-color: var(--menu-hover, rgba(0, 0, 0, 0.06)) !important;
-      }
-    }
+  // .el-menu {
+  //   border: none;
+  //   height: 100%;
+  //   width: 100% !important;
 
-    .el-sub-menu__title {
-      color: v-bind(getMenuTextColor);
-    }
-  }
+  //   .el-menu-item, .el-sub-menu__title {
+  //     &:hover {
+  //       background-color: var(--menu-hover, rgba(0, 0, 0, 0.06)) !important;
+  //     }
+  //   }
+
+  //   .el-menu-item {
+  //     color: v-bind(getMenuTextColor);
+
+  //     &.is-active {
+  //       color: #154ec1 !important;
+  //       background-color: var(--menu-hover, rgba(0, 0, 0, 0.06)) !important;
+  //     }
+  //   }
+
+  //   .el-sub-menu__title {
+  //     color: v-bind(getMenuTextColor);
+  //   }
+  // }
 }
 .sgms-menu {
   // large
   &.sgms-menu-large {
     :deep(.el-menu-item),
-    :deep(.el-submenu__title) {
-      font-size: 16px;
+    :deep(.el-sub-menu__title) {
+      font-size: 20px;
       line-height: 56px;
     }
     :deep(.el-menu-item-group__title) {
-      font-size:14px;
+      font-size: 20px;
     }
   }
   // default
   &.sgms-menu-default {
     :deep(.el-menu-item),
-    :deep(.el-submenu__title) {
-      font-size: 15px;
+    :deep(.el-sub-menu__title) {
+      font-size: 18px;
       line-height: 48px;
     }
     :deep(.el-menu-item-group__title) {
-      font-size:13px;
+      font-size: 18px;
     }
   }
   // small
   &.sgms-menu-small {
     :deep(.el-menu-item),
-    :deep(.el-submenu__title) {
-      font-size: 14px;
+    :deep(.el-sub-menu__title) {
+      font-size: 16px;
       line-height: 40px;
     }
     :deep(.el-menu-item-group__title) {
-      font-size:12px;
+      font-size: 16px;
     }
   }
 }

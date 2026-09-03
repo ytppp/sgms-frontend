@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-logo-container" :class="{ 'collapse': collapse }">
+  <div class="sidebar-logo-container" :class="{ collapse: collapse }">
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
         <img v-if="logo" :src="logo" class="sidebar-logo" />
@@ -21,8 +21,8 @@ import variables from '@/assets/styles/variables.module.scss'
 defineProps({
   collapse: {
     type: Boolean,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const title = import.meta.env.VITE_APP_TITLE
@@ -63,32 +63,32 @@ const getLogoTextColor = computed(() => {
 }
 
 .sidebar-logo-container {
-  position: relative;
-  height: 50px;
-  line-height: 50px;
-  background: v-bind(getLogoBackground);
-  text-align: center;
   overflow: hidden;
 
   & .sidebar-logo-link {
+    display: flex;
+    align-items: center;
     height: 100%;
     width: 100%;
 
     & .sidebar-logo {
       width: 32px;
       height: 32px;
-      vertical-align: middle;
-      margin-right: 12px;
+      margin-right: 6px;
     }
 
     & .sidebar-title {
       display: inline-block;
       margin: 0;
-      color: v-bind(getLogoTextColor);
+      color: #154ec1;
       font-weight: 600;
-      line-height: 50px;
-      font-size: 14px;
-      font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+      font-size: 24px;
+      font-family:
+        Avenir,
+        Helvetica Neue,
+        Arial,
+        Helvetica,
+        sans-serif;
       vertical-align: middle;
     }
   }
